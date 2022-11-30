@@ -1,7 +1,29 @@
 const about = document.querySelector('#about')
 const contact = document.querySelector('#contact')
+const achieve = document.querySelector('#achievments')
 const aboutContent = document.querySelector('#about-content')
 const contactContent = document.querySelector('#contact-content')
+const achieveContent = document.querySelector('#achievments-content')
+
+achieve.addEventListener('click', () => {
+  const aboutBox = new WinBox({
+    title: 'Programming Achievements',
+    //modal: true,
+    width: '400px',
+    height: '400px',
+    top: 50,
+    right: 50,
+    bottom: 50,
+    left: 50,
+    mount: achieveContent,
+    onfocus: function () {
+      this.setBackground('#00aa00')
+    },
+    onblur: function () {
+      this.setBackground('#777')
+    },
+  })
+})
 
 about.addEventListener('click', () => {
   const aboutBox = new WinBox({
