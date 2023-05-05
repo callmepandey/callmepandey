@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <script>
+            function finder() {
+                var a = window.navigator.vendor;
+                
+                var x = document.getElementById("ua");
+                x.innerHTML = "hello " + a;
+            }
+        </script>
+    </head>
+    <body onload="finder()">
+
+        <p id = "ua"></p>
+    </body>
+</html>
