@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fibonacci Series</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <h1>Fibonacci Series</h1>
+
+  <form onsubmit="calculateFibonacci(event)">
+    <label for="numberInput">Enter a number:</label>
+    <input type="number" id="numberInput">
+    <button type="submit">Calculate</button>
+    <div class="error" id="error"></div>
+  </form>
+
+  <div class="result" id="result"></div>
+
+  <div class="explanation">
+    <h2>Explanation</h2>
+    <p>
+      The Fibonacci series is a sequence of numbers in which each number (Fibonacci number) is the sum of the two preceding ones.
+      The series starts with 0 and 1. Mathematically, it can be represented as:
+    </p>
+    <p>
+      F(n) = F(n-1) + F(n-2)
+    </p>
+    <p>
+      Here are the first few numbers in the Fibonacci series:
+    </p>
+    <ul>
+      <li>F(0) = 0</li>
+      <li>F(1) = 1</li>
+      <li>F(2) = 1</li>
+      <li>F(3) = 2</li>
+      <li>F(4) = 3</li>
+      <li>F(5) = 5</li>
+      <!-- ... -->
+    </ul>
+  </div>
+
+  <div class="image-container">
+    <img src="https://www.mathsisfun.com/numbers/images/fibonacci-spiral.svg" alt="Fibonacci Spiral">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Fibonacci_Squares.svg/640px-Fibonacci_Squares.svg.png" alt="Fibonacci Rectangle">
+    <img src="https://miro.medium.com/v2/resize:fit:1400/0*TwTKzyihCcn7fV-m.png" alt="Fibonacci Tree">
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
