@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Touch Activity Detector</title>
+    <title>Touch and Click Activity Detector</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,22 +16,23 @@
     </style>
 </head>
 <body>
-    <h1>Touch Activity Detector</h1>
-    <p>Touch anywhere on the screen to detect touch activity.</p>
+    <h1>Touch and Click Activity Detector</h1>
+    <p>Touch or click anywhere on the screen to detect activity.</p>
     <div id="output"></div>
 
     <script>
         const outputElement = document.getElementById("output");
 
-        // Function to handle touch event
-        function handleTouch(event) {
-            const touchX = event.touches[0].clientX;
-            const touchY = event.touches[0].clientY;
-            outputElement.innerText = `Touch detected at (${touchX}px, ${touchY}px)`;
+        // Function to handle touch or click event
+        function handleEvent(event) {
+            const posX = event.clientX || event.touches[0].clientX;
+            const posY = event.clientY || event.touches[0].clientY;
+            outputElement.innerText = `Activity detected at (${posX}px, ${posY}px)`;
         }
 
-        // Add a touch event listener to the entire document
-        document.addEventListener("touchstart", handleTouch);
+        // Add event listeners for both touch and click
+        document.addEventListener("touchstart", handleEvent);
+        document.addEventListener("click", handleEvent);
     </script>
 </body>
 </html>
