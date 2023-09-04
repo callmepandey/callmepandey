@@ -24,8 +24,10 @@
         const outputElement = document.getElementById("output");
 
         // Function to handle touch event
-        function handleTouch() {
-            outputElement.innerText = "Touch detected!";
+        function handleTouch(event) {
+            const touchX = event.touches[0].clientX;
+            const touchY = event.touches[0].clientY;
+            outputElement.innerText = `Touch detected at (${touchX}px, ${touchY}px)`;
         }
 
         // Add a touch event listener to the entire document
