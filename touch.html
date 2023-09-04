@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Touch Activity Detector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #output {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Touch Activity Detector</h1>
+    <p>Touch anywhere on the screen to detect touch activity.</p>
+    <div id="output"></div>
+
+    <script>
+        const outputElement = document.getElementById("output");
+
+        // Function to handle touch event
+        function handleTouch() {
+            outputElement.innerText = "Touch detected!";
+        }
+
+        // Add a touch event listener to the entire document
+        document.addEventListener("touchstart", handleTouch);
+    </script>
+</body>
+</html>
