@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Touch and Click Activity Detector</title>
+    <title>Touch Movement Detection</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,22 +16,46 @@
     </style>
 </head>
 <body>
-    <h1>Touch and Click Activity Detector</h1>
-    <p>Touch or click anywhere on the screen to detect activity.</p>
+    <h1>Touch Movement Detection</h1>
+    <p>Touch and drag your finger on the screen to detect movement.</p>
     <div id="output"></div>
 
     <script>
         const outputElement = document.getElementById("output");
+        let startX, startY;
+        let deltaX = 0, deltaY = 0;
 
-        // Function to handle touch or click event
-        function handleEvent(event) {
-            const posX = event.clientX || event.touches[0].clientX;
-            const posY = event.clientY || event.touches[0].clientY;
-            outputElement.innerText = `Activity detected at (${posX}px, ${posY}px)`;
+        // Function to handle touch start event
+        function handleTouchStart(event) {
+            startX = event.touches[0].clientX;
+            startY = event.touches[0].clientY;
         }
 
-        // Add event listeners for both touch and click
-        document.addEventListener("touchstart", handleEvent);
+        // Function to handle touch move event
+        function handleTouchMove(event) {
+            const currentX = event.touches[0].clientX;
+            const currentY = event.touches[0].clientY;
+
+            deltaX = currentX - startX;
+            deltaY = currentY - startY;
+
+            startX = currentX;
+            startY = currentY;
+
+            outputElement.innerText = `DeltaX: ${deltaX.toFixed(2)}px, DeltaY: ${deltaY.toFixed(2)}px`;
+        }
+
+        // Function to handle touch end event
+        function handleTouchEnd() {
+            deltaX = 0;
+            deltaY = 0;
+            outputElement.innerText = "Touch movement ended.";
+        }
+
+        // Add touch event listeners to the entire document
+        document.addEventListener("touchstart", handleTouchStart);
+        document.addEventListener("touchmove", handleTouchMove);
+        document.addEventListener("touchend", handleTouchEnd);
     </script>
 </body>
 </html>
