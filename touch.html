@@ -21,6 +21,39 @@
     <div id="output"></div>
 
     <script>
+        // Add event listeners for touch events on the window
+        window.addEventListener('touchstart', handleTouchStart);
+        window.addEventListener('touchmove', handleTouchMove);
+        window.addEventListener('touchend', handleTouchEnd);
+        
+        // Event handler for touchstart
+        function handleTouchStart(event) {
+          console.log('Touch Start Event - Coordinates:', getTouchCoordinates(event));
+        }
+        
+        // Event handler for touchmove
+        function handleTouchMove(event) {
+          console.log('Touch Move Event - Coordinates:', getTouchCoordinates(event));
+        }
+        
+        // Event handler for touchend
+        function handleTouchEnd(event) {
+          console.log('Touch End Event - Coordinates:', getTouchCoordinates(event));
+        }
+        
+        // Helper function to get touch coordinates
+        function getTouchCoordinates(event) {
+          const touches = event.touches;
+          const coordinates = [];
+        
+          for (let i = 0; i < touches.length; i++) {
+            const touch = touches[i];
+            coordinates.push({ x: touch.clientX, y: touch.clientY });
+          }
+        
+          return coordinates;
+        }
+
         const outputElement = document.getElementById("output");
         let startX, startY;
         let deltaX = 0, deltaY = 0;
